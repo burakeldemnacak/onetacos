@@ -1,0 +1,130 @@
+html,
+body {
+  height: 98%;
+  width: 100%;
+  font-family: url(‘MONTSERRAT-BOLD.OTF’);
+  /* font-family: url(‘MONTSERRAT-EXTRABOLD.OTF’); */
+}
+
+.footer {
+  background-color: #d15a5a;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.marquee,
+.marquee-with-options,
+.marquee-vert-before,
+.marquee-vert {
+  width: 100%;
+  overflow: hidden;
+}
+
+.card .card-header {
+  font-size: 3rem;
+  font-weight: 700;
+   background-color:#11723b ; 
+}
+.card .card-body {
+  background-color:#ebe6e1 ;
+}
+.queue-number {
+  font-size: 8.5vw;
+  font-weight: 600;
+  
+}
+
+.queue-number-sm {
+  font-size: 6vh;
+}
+
+.list-group-item.active {
+  background-color: #0003bc;
+  color: white;
+  border-color: #1300bc;
+}
+
+.box {
+  min-height: 48vh;
+}
+
+.box-head {
+  width: 100%;
+  height: 100%;
+  /* min-height: 6vh; */
+  background: #11723b;
+  color: yellow;
+  border-radius: 0.5vh;
+
+
+}
+
+.order-preparing {
+  width: 48%;
+  height: 100%;
+  /* min-height: 6vh; */
+  background: #11723b;
+  color: #f89422;
+  border-radius: 1.5vh;
+  text-align: center;
+  font-size: 3rem;
+  /* font-weight: 300; */
+  margin-top: 0.5vh;
+  /*Dışardan 100px aşağı doğru kayar*/
+  margin-bottom: 0.5vh;
+  /*Dışardan 100px yukarı doğru kayar*/
+  margin-right: 0.5vh;
+  /*Dışardan 100px sağa doğru kayar*/
+  margin-left: 0.5vh;
+  /*Dışardan 100px sola doğru kayar*/
+}
+
+.order-ready {
+  width: 48%;
+  height: 100%;
+  /* min-height: 6vh; */
+  background:#f89422;
+  color: #11723b;
+  border-radius: 1.5vh;
+  text-align: center;
+  font-size: 3rem;
+  /* font-weight: 300; */
+  margin-top: 0.5vh;
+  /*Dışardan 100px aşağı doğru kayar*/
+  margin-bottom: 0.5vh;
+  /*Dışardan 100px yukarı doğru kayar*/
+  margin-right: 0.5vh;
+  /*Dışardan 100px sağa doğru kayar*/
+  margin-left: 0.5vh;
+  /*Dışardan 100px sola doğru kayar*/
+}
+
+.box-detail {
+  font-size: 2.2vh;
+  font-weight: 800;
+  position: absolute;
+  top: 5.5vh;
+  left: 50%;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* .box-image {
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+
+ f89422 
+  object-fit: contain;
+  object-position: 50% 37%;
+} */
+
+ .box-image {
+width: 100%;
+height: 100%;
+object-fit: contain;
+background: #11723b;
+} 

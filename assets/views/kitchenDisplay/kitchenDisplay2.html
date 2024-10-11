@@ -1,0 +1,148 @@
+﻿<style>
+    .strike {
+        text-decoration: line-through;
+    }
+
+    .prepared {
+        color: darkgreen;
+    }
+
+
+    /*[class*="col-"] {
+        background-color: #eee;
+        background-color: rgba(86,61,124,.15);
+        border: 1px solid #ddd;
+        border: 1px solid rgba(86,61,124,.2);
+    }*/
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 3px;
+        font-size: 16px;
+        /* width: 1px; */
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+
+    .bglogo {
+        /* background-image: url("assets/images/glogo.jpg");  */
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    .notes{
+        font-size: 16px;
+        color:white;
+    }
+    .page-active {
+        height: 100%;
+        /* background-image: url('assets/images/CORS.png') ; */
+        background-size: cover;
+        background-position: center center;
+    }
+</style>
+
+<div ng-controller="kds2Ctrl" ng-init="app.layout.isSidebarClosed=true" class="page-active">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 page-active">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <!--<span class="col-lg-2 col-md-2 col-sm-2 col-xs-2 pull-left"><button class="btn btn-o btn-info text-extra-large ti-receipt tooltips" tooltip="{{:: 'main.PREPAREDOREDER' | translate}}" tooltip-placement="left" ng-click="getLastOrders()"></button></span>-->
+            <div class="col-lg-1 col-md-2 col-sm-6 col-xs-6 margin-top-5 margin-left-30 pull-right visible-lg">
+                <a class="btn btn-wide btn-red btn-scroll btn-scroll-top ti-back-left pull-right" href="#/mainscreen">
+                    <span translate="main.BACK">Back</span>
+                </a>
+            </div>
+            <!-- <div class="col-lg-1 col-md-2 col-sm-6 col-xs-6 margin-top-5 margin-left-30 pull-right visible-lg">
+                <a class="btn btn-wide btn-red btn-scroll btn-scroll-top ti-back-left pull-right" ng-click="ShowCompletedOrder()">
+                    <span translate="main.ORDER">Order Back</span>
+                </a>
+            </div> -->
+            <div class="col-lg-1 col-md-2 col-sm-6 col-xs-6 margin-top-5 pull-right visible-lg" ng-if="::user.restrictions.revertlastorder=='Enable'">
+                <a class="btn btn-wide btn-red btn-scroll btn-scroll-top ti-back-left pull-right" ng-click="revertlastorder()">
+                    <span translate="main.LASTORDER">Last Order Back</span>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 center">
+                <strong class="text-bricky" style="font-size:20px; color:red;">{{theClock}}</strong>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pull-right">
+                <span class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+                    <!-- <select id="ngstyle" class="form-control" ng-model="ngstyle" ng-change="Change(ngstyle)">
+                        <option value="">-- {{:: fontselection}} --</option>
+                        <option value="ngsize10pt">10 pt</option>
+                        <option value="ngsize12pt">12 pt</option>
+                        <option value="ngsize14pt">14 pt</option>
+                        <option value="ngsize16pt">16 pt</option>
+                        <option value="ngsize18pt">18 pt</option>
+                    </select> -->
+                    <select id="StoreProductionID" class="form-control ng" ng-show="$storage.KDisplayIndex=='-1'" ng-options="q.id as q.name for q in StoreProductions | orderBy:'+name'" ng-model="$storage.StoreProductionID" ng-change="LoadOrderItemStates()"></select>
+                </span>
+                <span class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" ng-if="user.Store.MemberID < 300000000000">
+                    <!--<input type="text" class="form-control text-uppercase" ng-model="$storage.KDisplayIndex" ng-change="LoadOrderItemStates()">-->
+                    <p>df</p>
+                    <select id="KDisplayIndex" class="form-control" ng-model="$storage.KDisplayIndex" ng-change="LoadOrderItemStates()">
+                        <!--<option value="" selected>-- {{:: kitchendisplayselection}} --</option>-->
+                        <option value="0" selected>MakeTable</option>
+                    </select>
+                </span>
+                <span class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right" ng-if="user.Store.MemberID >= 300000000000">
+                    <!--<input type="text" class="form-control text-uppercase" ng-model="$storage.KDisplayIndex" ng-change="LoadOrderItemStates()">-->
+                    <select id="KDisplayIndex" class="form-control" ng-model="$storage.KDisplayIndex" ng-change="LoadOrderItemStates()">
+                        <option value="-1">Mutfak</option>
+                        <option value="0">KDS</option>
+                    </select>
+
+                </span>
+            </div>
+        </div> <br />
+        <div class="row">
+            <div class="list-group-item-success" ng-repeat="item in orderitemstates">
+                <div class="col-sm-6 col-md-3" ng-click="RemoveItem(item.OrderID, $index, $index,item.AutoPrint)" ng-dblclick="BottonDblcilik()">
+                    <div style="background-color:dimgray;">
+                        <div style="border: 5px solid black;">
+                            <div class="panel-title" style="font-size:10px">
+
+                                <table>
+                                    <tr ng-style="item.headerBgColorStyle">
+                                        <th> {{item.OrderType }} <span class="badge badge-danger pull-left">{{$index+1}}</span></th>
+                                        <th> {{item.OrderSource}}</th>
+                                        <th> {{item.TakenBy}}</th>
+                                    </tr>
+                                    <tr ng-style="item.bgColorStyle">
+                                        <!-- ({{$index+1}})-{{item.OrderID}} / {{item.OrderNumber}} [{{item.TableName }}] -->
+                                        <th> {{item.OrderNumber}}</th>
+                                        <th> {{item.OrderDescrition}}  </th>
+                                        <th> {{:: timer}} ({{item.Timer}}) </th>
+                                    </tr>
+                                </table>
+                               
+                                    <div id="treeViewContainer" dx-tree-list="dataGridOptionsorder(item.orderItems, item.bgColor)">
+                                    </div>
+                                <div class="notes" ng-if="item.OrderNote">
+                                    {{item.OrderNote}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

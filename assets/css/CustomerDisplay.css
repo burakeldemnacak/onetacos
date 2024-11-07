@@ -27,18 +27,9 @@ body {
 }
 
 
-.page-active {
-    height: 100%;
-    background-image: url('../images/rop1.jpg');
-    background-size: cover;
-    background-position: auto;
-    flex-grow: 2;
+.onetacos1 {
     height: 100vh;
-    width: 65vw;
-}
-
-.hutla-katla {
-    background-image: url('../images/rop2.jpg');
+    background-image: url('../images/one1.jpg');
     background-size: 100% 100%;
     background-position: auto;
     flex-grow: 2;
@@ -46,9 +37,8 @@ body {
     width: 65vw;
 }
 
-.hutla-katlas {
-    height: 100vh;
-    background-image: url('../images/rop3.jpg');
+.onetacos2 {
+    background-image: url('../images/one2.jpg');
     background-size: 100% 100%;
     background-position: auto;
     flex-grow: 2;
@@ -56,32 +46,42 @@ body {
     width: 65vw;
 }
 
-.hutla-katlass {
+.onetacos3 {
     height: 100vh;
-    background-image: url('../images/rop4.jpg');
+    background-image: url('../images/one3.jpg');
     background-size: 100% 100%;
     background-position: auto;
     flex-grow: 2;
     height: 100vh;
     width: 65vw;
 }
-.hutla-katlassw {
+
+.onetacos4 {
     height: 100vh;
-    background-image: url('../images/rop5.jpg');
+    background-image: url('../images/one4.jpg');
     background-size: 100% 100%;
     background-position: auto;
     flex-grow: 2;
     height: 100vh;
     width: 65vw;
 }
-/* .hutla-katlsa {
-    background-image: url('../images/rop6.jpg');
+.onetacos5 {
+    height: 100vh;
+    background-image: url('../images/one5.jpg');
     background-size: 100% 100%;
     background-position: auto;
     flex-grow: 2;
     height: 100vh;
     width: 65vw;
-} */
+}
+.onetacos6 {
+    background-image: url('../images/one6.jpg');
+    background-size: 100% 100%;
+    background-position: auto;
+    flex-grow: 2;
+    height: 100vh;
+    width: 65vw;
+}
 
 .flex {
     display: flex;

@@ -6,7 +6,8 @@ function restangularConfig(RestangularProvider) {
 
    //RestangularProvider.setBaseUrl('http://pizzahut.ropng.site:9075/api/'); //PH - Test
    //RestangularProvider.setBaseUrl('http://185.169.53.183:9065/api/'); //PH
-    RestangularProvider.setBaseUrl('http://sr.yazilimocagi.net:9063/api/'); //PH
+    RestangularProvider.setBaseUrl('http://sr.yazilimocagi.net:9063/api/'); //srdöner
+    //RestangularProvider.setBaseUrl('http://10.10.10.14:9065/api/'); //srdöner
    //RestangularProvider.setBaseUrl('http://192.168.9.40:9061/api/'); //PH
    //RestangularProvider.setBaseUrl('http://192.168.104.153:9065/api/'); //KFC
    //RestangularProvider.setBaseUrl('http://10.0.0.245:9065/api/'); //MAROCCO
